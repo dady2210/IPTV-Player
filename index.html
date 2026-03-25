@@ -347,7 +347,7 @@
 
 		const apiUrl = `${server}/player_api.php?username=${username}&password=${password}&action=${action}`;
         // Envolvemos la URL en un proxy público para saltar el bloqueo de Vercel
-        const url = `https://api.allorigins.win/raw?url=${encodeURIComponent(apiUrl)}`;
+        const url = `https://corsproxy.io/?${encodeURIComponent(apiUrl)}`;
         try {
             document.getElementById('list').innerHTML = "<p style='text-align:center; padding: 20px;'>Cargando contenido...</p>";
             
@@ -377,7 +377,7 @@
     async function loadSeriesEpisodes(seriesItem) {
         const {server, username, password} = getAuth();
         const apiUrl = `${server}/player_api.php?username=${username}&password=${password}&action=get_series_info&series_id=${seriesItem.series_id}`;
-		const url = `https://api.allorigins.win/raw?url=${encodeURIComponent(apiUrl)}`;
+		const url = `https://corsproxy.io/?${encodeURIComponent(apiUrl)}`;
 
         try {
             document.getElementById('list').innerHTML = "<p style='text-align:center; padding: 20px;'>Cargando episodios...</p>";
